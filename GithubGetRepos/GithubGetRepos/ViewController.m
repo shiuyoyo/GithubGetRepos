@@ -13,13 +13,14 @@
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 @property (nonatomic, retain) NSMutableDictionary *responseDetailDic;
-@property (nonatomic, strong) NSMutableArray *responseReposArray;
+@property (nonatomic, retain) NSMutableArray *responseReposArray;
 @property (nonatomic, retain) NSString *userName;
 @property (nonatomic) int pagesCount;
 @property (nonatomic) int currentPage;
-@property (nonatomic, retain) IBOutlet UITableView *reposTable;
-@property (nonatomic, retain) IBOutlet UISearchBar *userSearchBar;
 @property (nonatomic) BOOL isLoading;
+
+@property (nonatomic, weak) IBOutlet UITableView *reposTable;
+@property (nonatomic, weak) IBOutlet UISearchBar *userSearchBar;
 @end
 
 @implementation ViewController
@@ -28,9 +29,10 @@
 @synthesize userName;
 @synthesize pagesCount;
 @synthesize currentPage;
+@synthesize isLoading;
+
 @synthesize reposTable;
 @synthesize userSearchBar;
-@synthesize isLoading;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,20 +41,20 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+#pragma mark - Get User Data
 - (void)getUserDetail
 {
     NSString *getUrlString = [NSString stringWithFormat:@"https://api.github.com/users/%@",userName];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:getUrlString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        
-        NSLog(@"JSON: %@", responseObject);
+//        NSLog(@"JSON: %@", responseObject);
         
         responseDetailDic = [NSMutableDictionary dictionaryWithDictionary:responseObject];
         
         pagesCount = ceil([[responseDetailDic objectForKey:@"public_repos"] intValue]/30.0);
 
-        NSLog(@"Detail :%@, Repos Count%i",[responseDetailDic objectForKey:@"public_repos"],pagesCount);
+        NSLog(@"Repos Count: %@, Pages Count: %i",[responseDetailDic objectForKey:@"public_repos"],pagesCount);
        
         [self getUserRepos:currentPage];
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -70,6 +72,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:userReposUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
+        //save response data in an array
         if (responseReposArray == nil) {
             responseReposArray = [NSMutableArray new];
             [responseReposArray addObjectsFromArray:responseObject];
@@ -79,6 +82,7 @@
         
         [reposTable reloadData];
         
+        //when loading finished
         isLoading = NO;
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -87,17 +91,21 @@
     }];
 }
 
+#pragma mark - Searchbar Delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
 //    NSLog(@"%@",searchBar.text);
+    
     if ([searchBar.text length] >0) {
         userName = searchBar.text;
         currentPage = 1;
         responseReposArray = nil;
         [self getUserDetail];
     }
+    
 }
 
+#pragma mark - TableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [responseReposArray count];
@@ -113,25 +121,25 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reposTableIdentifier];
     }
     
-    //顯示repos的名字
+    //show the name of repos
     cell.textLabel.text = [[responseReposArray objectAtIndex:indexPath.row] objectForKey:@"full_name"];
-    [cell.textLabel sizeToFit];
+    cell.textLabel.numberOfLines = 0;
     return cell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // 判斷目前是否正在載入資料
+    // distinguish is download or not
     if (isLoading)
         return;
     
-    // 判斷滾到哪裡的時候要自動載入更多，這可以依需求調整
-//    NSLog(@"%f,%f,%f",scrollView.contentOffset.y,scrollView.contentSize.height,scrollView.frame.size.height);
+//    NSLog(@"%f,%f,%f,%f",scrollView.contentOffset.y,scrollView.contentSize.height,scrollView.frame.size.height,self.view.bounds.size.height);
     
-    if ((scrollView.contentOffset.y*2 >= [responseReposArray count]*44) && (currentPage < pagesCount))
+    // distinguish scrolling in where
+    if ((scrollView.contentSize.height - scrollView.contentOffset.y) <= self.view.bounds.size.height && (currentPage < pagesCount))
     {
-        // 載入更多的動作寫在這裡
-        currentPage+=1;
+        // load more data
+        currentPage += 1;
         [self getUserRepos:currentPage];
     }
 }
