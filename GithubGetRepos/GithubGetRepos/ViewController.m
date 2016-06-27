@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AFHTTPSessionManager.h"
+#import "SVProgressHUD.h"
 
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
@@ -56,6 +57,7 @@
         [self getUserRepos:currentPage];
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
     }];
 }
 
@@ -69,7 +71,8 @@
     [manager GET:userReposUrl parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         if (responseReposArray == nil) {
-            responseReposArray = [NSMutableArray arrayWithObject:responseObject];
+            responseReposArray = [NSMutableArray new];
+            [responseReposArray addObjectsFromArray:responseObject];
         }else{
             [responseReposArray addObjectsFromArray:responseObject];
         }
@@ -80,6 +83,7 @@
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:[error localizedDescription]];
     }];
 }
 
@@ -96,7 +100,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[responseReposArray objectAtIndex:0] count];
+    return [responseReposArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,7 +114,7 @@
     }
     
     //顯示repos的名字
-    cell.textLabel.text = [[[responseReposArray objectAtIndex:0] objectAtIndex:indexPath.row] objectForKey:@"full_name"];
+    cell.textLabel.text = [[responseReposArray objectAtIndex:indexPath.row] objectForKey:@"full_name"];
     [cell.textLabel sizeToFit];
     return cell;
 }
@@ -122,9 +126,9 @@
         return;
     
     // 判斷滾到哪裡的時候要自動載入更多，這可以依需求調整
-    NSLog(@"%f,%f,%f",scrollView.contentOffset.y,scrollView.contentSize.height,scrollView.frame.size.height);
+//    NSLog(@"%f,%f,%f",scrollView.contentOffset.y,scrollView.contentSize.height,scrollView.frame.size.height);
     
-    if ((scrollView.contentOffset.y*2 >= scrollView.contentSize.height) && (currentPage < pagesCount))
+    if ((scrollView.contentOffset.y*2 >= [responseReposArray count]*44) && (currentPage < pagesCount))
     {
         // 載入更多的動作寫在這裡
         currentPage+=1;
