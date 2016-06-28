@@ -12,13 +12,10 @@
 		33A73B9D1D1F9903001FF15F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73B9C1D1F9903001FF15F /* ViewController.m */; };
 		33A73BA01D1F9903001FF15F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A73B9E1D1F9903001FF15F /* Main.storyboard */; };
 		33A73BA31D1F9903001FF15F /* GithubGetRepos.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BA11D1F9903001FF15F /* GithubGetRepos.xcdatamodeld */; };
-		33A73BA51D1F9903001FF15F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A73BA41D1F9903001FF15F /* Assets.xcassets */; };
 		33A73BA81D1F9903001FF15F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A73BA61D1F9903001FF15F /* LaunchScreen.storyboard */; };
 		33A73BB31D1F9904001FF15F /* GithubGetReposTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BB21D1F9904001FF15F /* GithubGetReposTests.m */; };
 		33A73BBE1D1F9904001FF15F /* GithubGetReposUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BBD1D1F9904001FF15F /* GithubGetReposUITests.m */; };
 		33A73BF31D1FAAA2001FF15F /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BE51D1FAAA2001FF15F /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		33A73BF41D1FAAA2001FF15F /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 33A73BE71D1FAAA2001FF15F /* SVProgressHUD.bundle */; };
-		33A73BF51D1FAAA2001FF15F /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BE91D1FAAA2001FF15F /* SVProgressHUD.m */; };
 		33A73C041D1FAD12001FF15F /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BF81D1FAD12001FF15F /* AFHTTPSessionManager.m */; };
 		33A73C051D1FAD12001FF15F /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BFB1D1FAD12001FF15F /* AFNetworkReachabilityManager.m */; };
 		33A73C061D1FAD12001FF15F /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73BFD1D1FAD12001FF15F /* AFSecurityPolicy.m */; };
@@ -34,6 +31,12 @@
 		33A73C251D1FAD1B001FF15F /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73C1A1D1FAD1B001FF15F /* UIProgressView+AFNetworking.m */; };
 		33A73C261D1FAD1B001FF15F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73C1C1D1FAD1B001FF15F /* UIRefreshControl+AFNetworking.m */; };
 		33A73C271D1FAD1B001FF15F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A73C1E1D1FAD1B001FF15F /* UIWebView+AFNetworking.m */; };
+		33B864131D2176BD00337B18 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8640A1D2176BD00337B18 /* SVIndefiniteAnimatedView.m */; };
+		33B864141D2176BD00337B18 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B8640C1D2176BD00337B18 /* SVProgressAnimatedView.m */; };
+		33B864151D2176BD00337B18 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 33B8640E1D2176BD00337B18 /* SVProgressHUD.bundle */; };
+		33B864161D2176BD00337B18 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B864101D2176BD00337B18 /* SVProgressHUD.m */; };
+		33B864171D2176BD00337B18 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B864121D2176BD00337B18 /* SVRadialGradientLayer.m */; };
+		33B864191D2217B800337B18 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B864181D2217B800337B18 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 		33A73B9C1D1F9903001FF15F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		33A73B9F1D1F9903001FF15F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		33A73BA21D1F9903001FF15F /* GithubGetRepos.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubGetRepos.xcdatamodel; sourceTree = "<group>"; };
-		33A73BA41D1F9903001FF15F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33A73BA71D1F9903001FF15F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33A73BA91D1F9903001FF15F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33A73BAE1D1F9904001FF15F /* GithubGetReposTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubGetReposTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,9 +75,6 @@
 		33A73BBF1D1F9904001FF15F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33A73BE41D1FAAA2001FF15F /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		33A73BE51D1FAAA2001FF15F /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		33A73BE71D1FAAA2001FF15F /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		33A73BE81D1FAAA2001FF15F /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		33A73BE91D1FAAA2001FF15F /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		33A73BF71D1FAD12001FF15F /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		33A73BF81D1FAD12001FF15F /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		33A73BF91D1FAD12001FF15F /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -109,6 +108,17 @@
 		33A73C1C1D1FAD1B001FF15F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		33A73C1D1D1FAD1B001FF15F /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		33A73C1E1D1FAD1B001FF15F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		33B864091D2176BD00337B18 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		33B8640A1D2176BD00337B18 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		33B8640B1D2176BD00337B18 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		33B8640C1D2176BD00337B18 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		33B8640D1D2176BD00337B18 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		33B8640E1D2176BD00337B18 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		33B8640F1D2176BD00337B18 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		33B864101D2176BD00337B18 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		33B864111D2176BD00337B18 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		33B864121D2176BD00337B18 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		33B864181D2217B800337B18 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +175,10 @@
 				33A73B9B1D1F9903001FF15F /* ViewController.h */,
 				33A73B9C1D1F9903001FF15F /* ViewController.m */,
 				33A73B9E1D1F9903001FF15F /* Main.storyboard */,
-				33A73BA41D1F9903001FF15F /* Assets.xcassets */,
 				33A73BA61D1F9903001FF15F /* LaunchScreen.storyboard */,
 				33A73BA91D1F9903001FF15F /* Info.plist */,
 				33A73BA11D1F9903001FF15F /* GithubGetRepos.xcdatamodeld */,
+				33B864181D2217B800337B18 /* Images.xcassets */,
 				33A73B951D1F9903001FF15F /* Supporting Files */,
 			);
 			path = GithubGetRepos;
@@ -203,9 +213,9 @@
 		33A73BCE1D1FAA71001FF15F /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				33B864081D2176BD00337B18 /* SVProgressHUD */,
 				33A73BF61D1FAD12001FF15F /* AFNetworking */,
 				33A73BE31D1FAAA2001FF15F /* JSONKit */,
-				33A73BE61D1FAAA2001FF15F /* SVProgressHUD */,
 			);
 			path = Externals;
 			sourceTree = "<group>";
@@ -217,16 +227,6 @@
 				33A73BE51D1FAAA2001FF15F /* JSONKit.m */,
 			);
 			path = JSONKit;
-			sourceTree = "<group>";
-		};
-		33A73BE61D1FAAA2001FF15F /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				33A73BE71D1FAAA2001FF15F /* SVProgressHUD.bundle */,
-				33A73BE81D1FAAA2001FF15F /* SVProgressHUD.h */,
-				33A73BE91D1FAAA2001FF15F /* SVProgressHUD.m */,
-			);
-			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		33A73BF61D1FAD12001FF15F /* AFNetworking */ = {
@@ -275,6 +275,23 @@
 				33A73C1E1D1FAD1B001FF15F /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		33B864081D2176BD00337B18 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				33B864091D2176BD00337B18 /* SVIndefiniteAnimatedView.h */,
+				33B8640A1D2176BD00337B18 /* SVIndefiniteAnimatedView.m */,
+				33B8640B1D2176BD00337B18 /* SVProgressAnimatedView.h */,
+				33B8640C1D2176BD00337B18 /* SVProgressAnimatedView.m */,
+				33B8640D1D2176BD00337B18 /* SVProgressHUD-Prefix.pch */,
+				33B8640E1D2176BD00337B18 /* SVProgressHUD.bundle */,
+				33B8640F1D2176BD00337B18 /* SVProgressHUD.h */,
+				33B864101D2176BD00337B18 /* SVProgressHUD.m */,
+				33B864111D2176BD00337B18 /* SVRadialGradientLayer.h */,
+				33B864121D2176BD00337B18 /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,9 +398,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A73BA81D1F9903001FF15F /* LaunchScreen.storyboard in Resources */,
-				33A73BA51D1F9903001FF15F /* Assets.xcassets in Resources */,
+				33B864191D2217B800337B18 /* Images.xcassets in Resources */,
 				33A73BA01D1F9903001FF15F /* Main.storyboard in Resources */,
-				33A73BF41D1FAAA2001FF15F /* SVProgressHUD.bundle in Resources */,
+				33B864151D2176BD00337B18 /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,20 +428,23 @@
 				33A73C251D1FAD1B001FF15F /* UIProgressView+AFNetworking.m in Sources */,
 				33A73C231D1FAD1B001FF15F /* UIButton+AFNetworking.m in Sources */,
 				33A73C261D1FAD1B001FF15F /* UIRefreshControl+AFNetworking.m in Sources */,
-				33A73BF51D1FAAA2001FF15F /* SVProgressHUD.m in Sources */,
 				33A73C061D1FAD12001FF15F /* AFSecurityPolicy.m in Sources */,
 				33A73B9D1D1F9903001FF15F /* ViewController.m in Sources */,
+				33B864131D2176BD00337B18 /* SVIndefiniteAnimatedView.m in Sources */,
 				33A73B9A1D1F9903001FF15F /* AppDelegate.m in Sources */,
 				33A73C081D1FAD12001FF15F /* AFURLResponseSerialization.m in Sources */,
 				33A73B971D1F9903001FF15F /* main.m in Sources */,
 				33A73C241D1FAD1B001FF15F /* UIImageView+AFNetworking.m in Sources */,
+				33B864161D2176BD00337B18 /* SVProgressHUD.m in Sources */,
 				33A73BA31D1F9903001FF15F /* GithubGetRepos.xcdatamodeld in Sources */,
 				33A73C041D1FAD12001FF15F /* AFHTTPSessionManager.m in Sources */,
 				33A73C1F1D1FAD1B001FF15F /* AFAutoPurgingImageCache.m in Sources */,
+				33B864141D2176BD00337B18 /* SVProgressAnimatedView.m in Sources */,
 				33A73C071D1FAD12001FF15F /* AFURLRequestSerialization.m in Sources */,
 				33A73C091D1FAD12001FF15F /* AFURLSessionManager.m in Sources */,
 				33A73C201D1FAD1B001FF15F /* AFImageDownloader.m in Sources */,
 				33A73C051D1FAD12001FF15F /* AFNetworkReachabilityManager.m in Sources */,
+				33B864171D2176BD00337B18 /* SVRadialGradientLayer.m in Sources */,
 				33A73C271D1FAD1B001FF15F /* UIWebView+AFNetworking.m in Sources */,
 				33A73BF31D1FAAA2001FF15F /* JSONKit.m in Sources */,
 				33A73C221D1FAD1B001FF15F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -570,9 +590,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GithubGetRepos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yoyo.GithubGetRepos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -581,9 +603,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GithubGetRepos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yoyo.GithubGetRepos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -652,6 +676,7 @@
 				33A73BC41D1F9904001FF15F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33A73BC51D1F9904001FF15F /* Build configuration list for PBXNativeTarget "GithubGetReposTests" */ = {
 			isa = XCConfigurationList;
@@ -660,6 +685,7 @@
 				33A73BC71D1F9904001FF15F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33A73BC81D1F9904001FF15F /* Build configuration list for PBXNativeTarget "GithubGetReposUITests" */ = {
 			isa = XCConfigurationList;
@@ -668,6 +694,7 @@
 				33A73BCA1D1F9904001FF15F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

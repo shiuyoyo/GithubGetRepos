@@ -66,6 +66,7 @@
 - (void)getUserRepos:(int)page
 {
     isLoading = YES;
+    [SVProgressHUD showWithStatus:@"loading"];
     
     NSString *userReposUrl = [NSString stringWithFormat:@"https://api.github.com/users/%@/repos?page=%i",userName,page];
     
@@ -84,6 +85,7 @@
         
         //when loading finished
         isLoading = NO;
+        [SVProgressHUD dismiss];
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -100,6 +102,7 @@
         userName = searchBar.text;
         currentPage = 1;
         responseReposArray = nil;
+        [searchBar resignFirstResponder];
         [self getUserDetail];
     }
     
@@ -109,6 +112,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [responseReposArray count];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[responseReposArray objectAtIndex:indexPath.row] objectForKey:@"svn_url"]]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,7 +144,7 @@
 //    NSLog(@"%f,%f,%f,%f",scrollView.contentOffset.y,scrollView.contentSize.height,scrollView.frame.size.height,self.view.bounds.size.height);
     
     // distinguish scrolling in where
-    if ((scrollView.contentSize.height - scrollView.contentOffset.y) <= self.view.bounds.size.height && (currentPage < pagesCount))
+    if ((scrollView.contentSize.height - scrollView.contentOffset.y) <= self.view.bounds.size.height-70 && (currentPage < pagesCount))
     {
         // load more data
         currentPage += 1;
