@@ -66,6 +66,8 @@
 - (void)getUserRepos:(int)page
 {
     isLoading = YES;
+    [reposTable reloadData];
+    
     [SVProgressHUD showWithStatus:@"loading"];
     
     NSString *userReposUrl = [NSString stringWithFormat:@"https://api.github.com/users/%@/repos?page=%i",userName,page];
@@ -81,10 +83,11 @@
             [responseReposArray addObjectsFromArray:responseObject];
         }
         
-        [reposTable reloadData];
+        
         
         //when loading finished
         isLoading = NO;
+        [reposTable reloadData];
         [SVProgressHUD dismiss];
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -109,9 +112,32 @@
 }
 
 #pragma mark - TableView Delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (isLoading && currentPage != 1) {
+        return 2;
+    }
+    else
+        return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [responseReposArray count];
+    switch (section) {
+        case 0:
+            return [responseReposArray count];
+            break;
+        case 1:
+            if (isLoading && currentPage != 1)
+                return 1;
+            else
+                return 0;
+            break;
+            
+        default:
+            return 0;
+            break;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,17 +148,41 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *reposTableIdentifier = @"ReposTableCell";
+    static NSString *loadingTableIdentifier = @"loadingTableCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reposTableIdentifier];
+    UITableViewCell *loadingcell = [tableView dequeueReusableCellWithIdentifier:loadingTableIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reposTableIdentifier];
+    switch (indexPath.section) {
+        case 0:
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reposTableIdentifier];
+            }
+            
+            //show the name of repos
+            cell.textLabel.text = [[responseReposArray objectAtIndex:indexPath.row] objectForKey:@"full_name"];
+            cell.textLabel.numberOfLines = 0;
+            return cell;
+            break;
+            
+        case 1:
+            if (loadingcell == nil) {
+                loadingcell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:loadingTableIdentifier];
+            }
+            
+            
+            loadingcell.textLabel.text = @"Pull to load more";
+            loadingcell.textLabel.textColor = [UIColor grayColor];
+            loadingcell.textLabel.textAlignment = NSTextAlignmentCenter;
+            
+            return loadingcell;
+            break;
+            
+        default:
+            return cell;
+            break;
     }
     
-    //show the name of repos
-    cell.textLabel.text = [[responseReposArray objectAtIndex:indexPath.row] objectForKey:@"full_name"];
-    cell.textLabel.numberOfLines = 0;
-    return cell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
